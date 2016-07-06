@@ -1,0 +1,16 @@
+# Build service with base-image
+version: '1.0'
+
+steps:
+  prepare-step:
+    image: codefresh/base-image:latest
+    commands:
+      - npm install --unsafe-perm
+      - bower install
+      - gulp version
+
+  build-step:
+    type: build
+    base-image: codefresh/base-image:latest
+    dockerfile: Dockerfile
+    image-name: codefresh/image
