@@ -1,0 +1,10 @@
+# Build a service with Dockerfile
+version: '1.0'
+
+steps:
+  build-example:
+    type: build
+    description: yaml example
+    image-name: codefresh-io/image
+    dockerfile: Dockerfile
+    tag: latest
