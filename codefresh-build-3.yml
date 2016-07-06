@@ -1,0 +1,12 @@
+# Build a service with build-arguments
+version: '1.0'
+
+steps:
+  build-example:
+    type: build
+    description: yaml example
+    image-name: codefresh-io/image-example
+    dockerfile: Dockerfile
+    tag: latest
+    build-arguments:
+      - user=codefresh-io
