@@ -1,0 +1,17 @@
+# Build service with integration tests
+version: '1.0'
+
+steps:
+  integration-tests:
+    type: composition
+    image: alpine
+    composition-file: integ-test-composition.yml
+    commands:
+      - tests/exec.sh
+
+  build-example:
+    type: build
+    description: yaml example
+    image-name: codefresh-io/image
+    dockerfile: Dockerfile
+    tag: latest
