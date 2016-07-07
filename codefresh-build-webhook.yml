@@ -1,0 +1,21 @@
+# Build service and send webhook
+version: '1.0'
+
+ steps:
+   build-prj:
+     type: build
+     description: codefresh example
+     image-name: codefreshio/image
+     dockerfile: Dockerfile
+     tag: latest
+
+   push-dockerhub:
+    type: push
+    candidate: ${{build-prj}}
+    tag: latest
+
+   hook:
+     image: tutum/curl:latest
+     commands:
+        - curl http://hook.io
+     description: codefresh example
