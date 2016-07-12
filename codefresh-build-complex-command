@@ -1,0 +1,12 @@
+# Run A Freestyle Step With Complex Commands
+version: '1.0'
+
+steps:
+  unit-test-step:
+    image: go:onbuild
+    commands:
+      # Simple commands can be written inline
+      - go test
+      # Complex commands should be places in a block that takes the string "as is"
+      - >-
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"-----------------\"}"  https://hooks.slack.com/services/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
