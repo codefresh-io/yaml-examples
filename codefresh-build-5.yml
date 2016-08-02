@@ -9,7 +9,11 @@ steps:
     dockerfile: Dockerfile
     tag: latest
 
-  push-dockerhub:
+  push-image:
     type: push
     candidate: ${{build-example}}
     tag: latest
+    registry: dtr.host.com
+    credentials:
+      username: ${{username}}
+      password: ${{password}}
