@@ -1,24 +1,23 @@
 version: '1.0'
 
 steps:
-  build-step-name:
-    type: build
-    description: spring maven project
-    image-name: codefresh/example
-    dockerfile: Dockerfile
-    tag: latest
+ build-step-name:
+   type: build
+   image-name: codefreshio/yaml-node-33
+   dockerfile: Dockerfile
 
-  push-to-dockerhub:
-    type: push
-    candidate: ${{build-step-name}}
-    tag: latest
+ push-to-dockerhub:
+   type: push
+   candidate: ${{build-step-name}}
+   tag: latest
 
-  composition-step:
-    type: composition
-    composition-candidates:
-      docker-spring-boot:
-        image: 'codefresh/example:latest'
-        ports:
-          - 8080
-    composition-variables:
-      - IMAGE_NAME=example
+ composition-step:
+   type: composition
+   composition: yaml-composition
+   composition-candidates:
+    test-yaml:
+      image: 'codefreshio/${{IMAGE_NAME}}:latest'
+      ports:
+        - 3000
+   composition-variables:
+     - IMAGE_NAME=yaml-node-33
