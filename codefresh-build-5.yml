@@ -13,7 +13,7 @@ steps:
     type: push
     candidate: ${{build-example}}
     tag: latest
-    registry: dtr.host.com
+    registry: #Optional
     credentials:
-      username: ${{username}}
-      password: ${{password}}
+      username: #Dockerhub username
+      password: #Dockerhub password
