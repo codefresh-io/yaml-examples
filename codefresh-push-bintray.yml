@@ -15,5 +15,5 @@ steps:
     tag: ${{CF_BRANCH}}
     registry: bintray.io
     credentials:
-      username: #bitray username
+      username: #bintray username
       password: #API_KEY
