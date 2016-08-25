@@ -15,5 +15,5 @@ steps:
     tag: ${{CF_BRANCH}}
     registry: #registry of amazonaws.com
     credentials:
-      username: ${{aws_key}}
-      password: ${{aws_secret}}
+      username: ${{aws-access-key-id}}
+      password: ${{aws-secret-access-key}}
