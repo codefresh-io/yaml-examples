@@ -1,0 +1,19 @@
+# Push image to quay.io
+version: '1.0'
+
+steps:
+  build-example:
+    type: build
+    description: yaml example
+    image-name: codefresh-io/image
+    dockerfile: Dockerfile
+    tag: latest
+
+  push-image:
+    type: push
+    candidate: ${{build-example}}
+    tag: ${{CF_BRANCH}}
+    registry: quay.io
+    credentials:
+      username: #quay.io username 
+      password: #quay.io encrypted password
