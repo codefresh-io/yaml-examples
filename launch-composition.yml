@@ -1,0 +1,23 @@
+version: '1.0'
+
+steps:
+  build-step:
+    type: build
+    description: Example
+    dockerfile: Dockerfile
+    image-name: codefresh/example  
+
+  launch-env:
+    type: launch-composition
+    composition:
+      version: '2'
+      services:
+        env:
+          image: ${{build-step}}
+          ports:
+           - 9000
+           
+  inline-composition:
+    type: launch-composition
+    composition: 'test-composition'
+    environmentName: 'yml-env-compose'
