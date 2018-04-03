@@ -8,5 +8,6 @@ steps:
       # Simple commands can be written inline
       - go test
       # Complex commands should be places in a block that takes the string "as is"
+      # Some bash characters should be wrapped with quotes to prevent interpolation For example an ampersand in a URL
       - >-
-        curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"-----------------\"}"  https://hooks.slack.com/services/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
+        curl -X POST -H 'Content-type: application/json' --data "{\"text\": \"-----------------\"}"  'https://hooks.slack.com/services/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&'
