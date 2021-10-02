@@ -1,0 +1,2 @@
+- name: Azure Machine Learning Workspace
+  uses: Azure/aml-workspace@v1
